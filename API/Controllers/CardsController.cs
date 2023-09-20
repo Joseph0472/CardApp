@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
@@ -14,17 +15,17 @@ public class CardsController : ControllerBase
         _context = context;
     }
 
-        [HttpGet]
-    public ActionResult<IEnumerable<Card>> GetUsers()
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Card>>> GetUsers()
     {
-        var cards = _context.Cards.ToList();
+        var cards = await _context.Cards.ToListAsync();
         
         return cards; 
     }
     
     [HttpGet("{id}")] // /api/user/2
-    public ActionResult<Card> GetCard(int id)
+    public async Task<ActionResult<Card>> GetCard(int id)
     {
-        return _context.Cards.Find(id);
+        return await _context.Cards.FindAsync(id);
     }
 }
