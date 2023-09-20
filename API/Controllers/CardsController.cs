@@ -16,14 +16,14 @@ public class CardsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Card>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<Card>>> GetCards()
     {
         var cards = await _context.Cards.ToListAsync();
         
         return cards; 
     }
     
-    [HttpGet("{id}")] // /api/user/2
+    [HttpGet("{id}")] // /api/card/2
     public async Task<ActionResult<Card>> GetCard(int id)
     {
         return await _context.Cards.FindAsync(id);
