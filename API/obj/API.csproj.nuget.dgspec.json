@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Projects\\dotNet\\CardApp\\API\\API.csproj": {}
+    "D:\\Projects\\dotNet\\CardApp\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\Projects\\dotNet\\CardApp\\API\\API.csproj": {
+    "D:\\Projects\\dotNet\\CardApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Projects\\dotNet\\CardApp\\API\\API.csproj",
+        "projectUniqueName": "D:\\Projects\\dotNet\\CardApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\Projects\\dotNet\\CardApp\\API\\API.csproj",
+        "projectPath": "D:\\Projects\\dotNet\\CardApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\jiang\\.nuget\\packages\\",
-        "outputPath": "d:\\Projects\\dotNet\\CardApp\\API\\obj\\",
+        "outputPath": "D:\\Projects\\dotNet\\CardApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jiang\\AppData\\Roaming\\NuGet\\NuGet.Config",
