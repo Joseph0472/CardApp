@@ -32,25 +32,20 @@ public class CardsController : BaseApiController
     }
 
     [HttpPost("add")] // POST: api/account/register
-    public async Task<ActionResult<Card>> Register(
-        string creditNumber, 
-        string cvc,
-        int expiryDateMonth,
-        int expiryDateDay
-        )
+    public async Task<ActionResult<Card>> Register(InputCard card)
     {
         using var hmac = new HMACSHA512();
-        var card = new Card
+        var cardToAdd = new Card
         {
-            CreditNumber = creditNumber,
-            CVCHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(cvc)),
+            CreditNumber = card.CreditNumber,
+            CVCHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(card.CVC)),
             CVCSalt = hmac.Key,
-            ExpiryDateMonth = expiryDateMonth,
-            ExpiryDateDay = expiryDateDay
+            ExpiryDateMonth = card.ExpiryDateMonth,
+            ExpiryDateDay = card.ExpiryDateDay
         };
 
-        _context.Cards.Add(card);
+        _context.Cards.Add(cardToAdd);
         await _context.SaveChangesAsync();
-        return card;
+        return cardToAdd;
     }
 }
