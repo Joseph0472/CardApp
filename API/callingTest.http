@@ -1,9 +1,9 @@
-// Get all cards
+// Get all cards' information
 get http://localhost:5126/api/cards
 
 ###
 // Get one card by Id
-get http://localhost:5126/api/cards/1
+get http://localhost:5126/api/cards/1234000022340000
 
 ###
 // Add a card
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "creditNumber": "1234000022340000",
-    "cvc": "012",
+    "cvc": "013",
     "expiryDateMonth": "1",
     "expiryDateDay": "2"
 }

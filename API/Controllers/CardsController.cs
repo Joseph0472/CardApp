@@ -25,10 +25,10 @@ public class CardsController : BaseApiController
         return cards; 
     }
     
-    [HttpGet("{id}")] // Get a card by Id /api/card/1
-    public async Task<ActionResult<Card>> GetCard(int id)
+    [HttpGet("{creditNumber}")] // Get a card by Id /api/card/1
+    public async Task<ActionResult<Card>> GetCard(string creditNumber)
     {
-        return await _context.Cards.FindAsync(id);
+        return await _context.Cards.FirstOrDefaultAsync(e => e.CreditNumber == creditNumber);
     }
 
     [HttpPost("add")] // POST: api/account/register
