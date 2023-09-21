@@ -11,8 +11,9 @@ post http://localhost:5126/api/cards/add
 Content-Type: application/json
 
 {
+    "name": "Tom",
     "creditNumber": "1234000322340003",
     "cvc": "013",
     "expiryDateYear": "23",
-    "expiryDateMonth": "10"
+    "expiryDateMonth": "11"
 }

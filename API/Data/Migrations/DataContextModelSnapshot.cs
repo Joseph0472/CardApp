@@ -37,6 +37,9 @@ namespace API.Data.Migrations
                     b.Property<string>("ExpiryDateYear")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cards");

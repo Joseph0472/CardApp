@@ -36,6 +36,10 @@ public class CardsController : BaseApiController
     {
         using var hmac = new HMACSHA512();
         // Validation (because of time limits, implementing in simple ways)
+        if(card.Name.Length > 50)
+        {
+            return BadRequest("Invalid name.");
+        }
         if(!int.TryParse(card.ExpiryDateYear, out int ExpiryDateYear) 
             || ExpiryDateYear < 0 || ExpiryDateYear > 99)
         {
@@ -52,6 +56,7 @@ public class CardsController : BaseApiController
         }
         var cardToAdd = new Card
         {
+            Name = card.Name,
             CreditNumber = card.CreditNumber,
             CVCHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(card.CVC)),
             CVCSalt = hmac.Key,

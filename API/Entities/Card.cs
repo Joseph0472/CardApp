@@ -3,6 +3,7 @@
 public class Card
 {
     public int Id { get; set; }
+    public string Name { get; set; }
     public string CreditNumber { get; set; }
     // public string CVC { get; set; }
     public byte[] CVCHash { get; set; }

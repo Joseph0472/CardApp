@@ -61,3 +61,5 @@ D:\Projects\dotNet\CardApp\API\obj\Debug\net7.0\refint\API.dll
 D:\Projects\dotNet\CardApp\API\obj\Debug\net7.0\API.pdb
 D:\Projects\dotNet\CardApp\API\obj\Debug\net7.0\API.genruntimeconfig.cache
 D:\Projects\dotNet\CardApp\API\obj\Debug\net7.0\ref\API.dll
+D:\Projects\dotNet\CardApp\API\bin\Debug\net7.0\Castle.Core.dll
+D:\Projects\dotNet\CardApp\API\bin\Debug\net7.0\FakeItEasy.dll
