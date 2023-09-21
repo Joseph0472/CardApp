@@ -35,13 +35,28 @@ public class CardsController : BaseApiController
     public async Task<ActionResult<Card>> Register(InputCard card)
     {
         using var hmac = new HMACSHA512();
+        // Validation (because of time limits, implementing in simple ways)
+        if(!int.TryParse(card.ExpiryDateYear, out int ExpiryDateYear) 
+            || ExpiryDateYear < 0 || ExpiryDateYear > 99)
+        {
+            return BadRequest("Invalid year.");
+        }
+        if(!int.TryParse(card.ExpiryDateMonth, out int parsedMonth) 
+            || parsedMonth < 1 || parsedMonth > 12)
+        {
+            return BadRequest("Invalid month.");
+        }
+        if(!int.TryParse(card.CVC, out int cvc))
+        {
+            return BadRequest("Invalid month.");
+        }
         var cardToAdd = new Card
         {
             CreditNumber = card.CreditNumber,
             CVCHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(card.CVC)),
             CVCSalt = hmac.Key,
-            ExpiryDateMonth = card.ExpiryDateMonth,
-            ExpiryDateDay = card.ExpiryDateDay
+            ExpiryDateYear = card.ExpiryDateYear,
+            ExpiryDateMonth = card.ExpiryDateMonth
         };
 
         _context.Cards.Add(cardToAdd);

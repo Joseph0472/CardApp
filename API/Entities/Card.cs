@@ -7,6 +7,6 @@ public class Card
     // public string CVC { get; set; }
     public byte[] CVCHash { get; set; }
     public byte[] CVCSalt { get; set; }
+    public string ExpiryDateYear { get; set; }
     public string ExpiryDateMonth { get; set; }
-    public string ExpiryDateDay { get; set; }
 }
